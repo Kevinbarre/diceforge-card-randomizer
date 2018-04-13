@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set of cards</title>
+</head>
+<body>
+    <h1>Cartes à utiliser pour une partie de Dice Forge:</h1>
+    <ul class=entries>
+    {% for card_slot, card_value in setup.items() | sort %}
+        <li>
+            {% if card_slot.card_type.name == "SOLAR" %}
+                {{ card_slot.slot_number }} &#9788;
+            {% elif card_slot.card_type.name == "LUNAR" %}
+                {{ card_slot.slot_number }} &#9790;
+            {% else %}
+                5&#9788; + 5&#9790;
+            {% endif %}
+                : {{ card_value }}
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
