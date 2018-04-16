@@ -51,6 +51,6 @@ class CardList(object):
         return str(self.card_list)
 
     def randomize(self):
-        card_setup = {card_slot: random.choice(possible_values)
+        card_setup = {card_slot: (random.choice(possible_values), len(possible_values) == 1)
                       for card_slot, possible_values in self.card_list.items()}
         return card_setup

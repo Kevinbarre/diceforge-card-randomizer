@@ -1,0 +1,24 @@
+/* unvisited and visited */
+a:link, a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: darkblue;
+}
+
+/* selected link (MUST be after hover to be effective) */
+a:active {
+    color : blue;
+}
+
+/* Elements where there is no card choice for them */
+.no-choice {
+    font-style : italic;
+}
+
+/* Elements where there is a possible choice to be made */
+.choice {
+    font-weight : bold;
+}

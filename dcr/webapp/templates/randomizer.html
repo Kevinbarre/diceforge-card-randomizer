@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Set of cards</title>
+    <title>Dice Forge Card Randomizer</title>
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-    <h1>Cartes à utiliser pour une partie de Dice Forge:</h1>
+    <h1>Cartes à utiliser pour une partie de Dice Forge :</h1>
     <ul class=entries>
-    {% for card_slot, card_value in setup.items() | sort %}
+    {% for card_slot, (card_value, is_no_choice) in setup.items() | sort %}
         <li>
             {% if card_slot.card_type.name == "SOLAR" %}
                 {{ card_slot.slot_number }} &#9788;
@@ -16,9 +17,21 @@
             {% else %}
                 5&#9788; + 5&#9790;
             {% endif %}
-                : {{ card_value }}
+            :
+            {% if is_no_choice %}
+                <span class="no-choice">
+            {% else %}
+                <span class="choice">
+            {% endif %}
+            {{ card_value }}</span>
         </li>
     {% endfor %}
     </ul>
+    <p>
+        Dice Forge est un jeu de <a href="https://www.trictrac.net/repertoire/personnalite/regis-bonnessee">Régis Bonnessée</a>,
+        illustré par <a href="http://www.biboun.com/blog/">Biboun</a>
+        et édité par <a href="http://www.libellud.com/">Libellud</a>.<br/>
+        Cette page est non-officielle et a été créée avec l'accord de l'éditeur Libellud.
+    </p>
 </body>
 </html>
